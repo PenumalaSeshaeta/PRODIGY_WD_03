@@ -1,0 +1,131 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('background.jpg'); 
+    background-size:85%;
+    margin: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+
+#title {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    color:beige; 
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+#game-container {
+    display: flex;
+    align-items: center;
+}
+
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden; 
+}
+
+.player-container div {
+    margin: 10px 0;
+}
+
+#winner, #runner {
+    font-size: 3em;
+    color:chocolate; 
+}
+
+#winner-label, #runner-label {
+    font-size: 3em;
+    color:bisque; 
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 2em;
+    color:#fefefe; 
+}
+
+#restart {
+    margin-top: 20px;
+    padding: 15px 30px; 
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color:cadetblue; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+}
+.popup {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 2px solid #888;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+    animation: popup-animation 0.5s ease-out;
+}
+
+@keyframes popup-animation {
+    from {transform: translate(-50%, -50%) scale(0);}
+    to {transform: translate(-50%, -50%) scale(1);}
+}
+@keyframes emoji-fall {
+    0% {top: -50px; opacity: 1;}
+    100% {top: 100vh; opacity: 0;}
+}
+
+.emoji-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+}
+
+.emoji {
+    position: absolute;
+    top: -50px;
+    font-size: 2em;
+    animation: emoji-fall 2s linear infinite;
+    opacity: 0;
+}
